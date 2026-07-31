@@ -1,0 +1,47 @@
+name: Nisar AI Studio - DigitalOcean Status Monitor
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  monitor-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch DigitalOcean Status RSS
+        run: |
+          curl -sL https://status.digitalocean.com/history.rss -o status.xml
+
+      - name: Parse Latest Incident
+        shell: bash
+        run: |
+          TITLE=$(grep -m1 "<title>" status.xml | sed 's/<[^>]*>//g')
+          LINK=$(grep -m1 "<link>https://status.digitalocean.com" status.xml | sed 's/<[^>]*>//g')
+
+          echo "TITLE=$TITLE" >> $GITHUB_ENV
+          echo "LINK=$LINK" >> $GITHUB_ENV
+
+      - name: Notify Slack
+        env:
+          WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST "$WEBHOOK" \
+          -H "Content-Type: application/json" \
+          -d "{
+            \"username\":\"Nisar AI Studio\",
+            \"icon_emoji\":\":robot_face:\",
+            \"text\":\"*🚨 Nisar AI Studio Infrastructure Monitor*\n\n*Provider:* DigitalOcean\n*Latest Incident:* ${TITLE}\n\n🔗 ${LINK}\n\n_Automated by Nisar AI Studio CI/CD Bot_\"}"🚨 Nisar AI Studio Infrastructure Monitor
+
+Provider: DigitalOcean
+
+Latest Incident:
+Response Degradation Impacting Kimi-K3
+
+🔗 https://status.digitalocean.com/incidents/...
+
+Automated by Nisar AI Studio CI/CD Bot
