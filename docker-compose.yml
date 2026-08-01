@@ -1,0 +1,155 @@
+version: '3.8'
+
+services:
+  # Databases
+  postgres:
+    image: postgres:16-alpine
+    container_name: nisar-postgres
+    environment:
+      POSTGRES_USER: nisar
+      POSTGRES_PASSWORD: nisardev123
+      POSTGRES_DB: nisar_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nisar"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: nisar-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: nisar-minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Services
+  builder-service:
+    build:
+      context: ./services/builder
+      dockerfile: Dockerfile
+    container_name: nisar-builder
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DATABASE_URL: postgresql://nisar:nisardev123@postgres:5432/nisar_platform
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-your-key-here}
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./services/builder:/app
+      - /app/node_modules
+
+  memory-service:
+    build:
+      context: ./services/memory
+      dockerfile: Dockerfile
+    container_name: nisar-memory
+    environment:
+      NODE_ENV: development
+      PORT: 3002
+      DATABASE_URL: postgresql://nisar:nisardev123@postgres:5432/nisar_platform
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: dev-jwt-secret-change-in-production
+    ports:
+      - "3002:3002"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./services/memory:/app
+      - /app/node_modules
+
+  deployment-agent:
+    build:
+      context: ./services/deployment-agent
+      dockerfile: Dockerfile
+    container_name: nisar-deployment
+    environment:
+      NODE_ENV: development
+      PORT: 3003
+      DATABASE_URL: postgresql://nisar:nisardev123@postgres:5432/nisar_platform
+      REDIS_URL: redis://redis:6379
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin123
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      VERCEL_TOKEN: ${VERCEL_TOKEN:-your-token-here}
+      NETLIFY_TOKEN: ${NETLIFY_TOKEN:-your-token-here}
+    ports:
+      - "3003:3003"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    volumes:
+      - ./services/deployment-agent:/app
+      - /app/node_modules
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile.dev
+    container_name: nisar-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NEXT_PUBLIC_BUILDER_URL: http://localhost:3001
+      NEXT_PUBLIC_MEMORY_URL: http://localhost:3002
+      NEXT_PUBLIC_DEPLOYMENT_URL: http://localhost:3003
+    ports:
+      - "3000:3000"
+    depends_on:
+      - builder-service
+      - memory-service
+      - deployment-agent
+    volumes:
+      - ./apps/frontend:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+
+networks:
+  default:
+    name: nisar-network
