@@ -1,0 +1,50 @@
+{
+  "name": "nisar-builder-service",
+  "version": "1.0.0",
+  "description": "Visual website builder with drag-and-drop, component library, and AI suggestions",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts",
+    "migrate": "tsx src/db/migrate.ts"
+  },
+  "keywords": [
+    "builder",
+    "website",
+    "drag-and-drop",
+    "ai"
+  ],
+  "author": "Nisar AI Studio",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "typescript": "^5.3.3",
+    "pg": "^8.11.3",
+    "redis": "^4.6.12",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.1.2",
+    "axios": "^1.6.2",
+    "ws": "^8.15.0",
+    "zod": "^3.22.4",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.6",
+    "@types/ws": "^8.5.10",
+    "tsx": "^4.7.0",
+    "vitest": "^1.1.0",
+    "@vitest/ui": "^1.1.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0"
+  }
+}
