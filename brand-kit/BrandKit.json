@@ -1,0 +1,193 @@
+{
+  "brand": {
+    "name": "Nisar AI Studio",
+    "tagline": "All-in-One Canva Pro Master Template Engine",
+    "owner": "Muhammad Nisar",
+    "website": "https://nisaraistudio.vercel.app",
+    "contact": "+92-3235052148",
+    "copyright": "© 2026 Nisar AI Studio - All Rights Reserved"
+  },
+  "colors": {
+    "primary": {
+      "name": "Cyan Glow",
+      "hex": "#00D9FF",
+      "rgb": "0, 217, 255",
+      "usage": ["CTA buttons", "Highlights", "Glow effects", "Accents"]
+    },
+    "secondary": {
+      "name": "Purple Electric",
+      "hex": "#7B61FF",
+      "rgb": "123, 97, 255",
+      "usage": ["Discount badges", "Secondary highlights", "Accents"]
+    },
+    "background": {
+      "name": "Deep Navy",
+      "hex": "#0A0E1A",
+      "rgb": "10, 14, 26",
+      "usage": ["Page background", "Cards", "Containers"]
+    },
+    "text": {
+      "name": "Pure White",
+      "hex": "#FFFFFF",
+      "rgb": "255, 255, 255",
+      "usage": ["All text content", "Headlines", "Body"]
+    },
+    "accent": {
+      "name": "Neon Green",
+      "hex": "#00FF88",
+      "rgb": "0, 255, 136",
+      "usage": ["Checkmarks", "Success states", "Highlights"]
+    }
+  },
+  "typography": {
+    "heading": {
+      "font": "Sora",
+      "weight": "Bold",
+      "size": 72,
+      "lineHeight": 1.2,
+      "color": "#FFFFFF",
+      "usage": "Main headlines, page titles"
+    },
+    "subheading": {
+      "font": "Inter",
+      "weight": "SemiBold",
+      "size": 48,
+      "lineHeight": 1.3,
+      "color": "#FFFFFF",
+      "usage": "Section titles, subtitles"
+    },
+    "body": {
+      "font": "Inter",
+      "weight": "Regular",
+      "size": 24,
+      "lineHeight": 1.5,
+      "color": "#FFFFFF",
+      "usage": "Body text, descriptions, features"
+    },
+    "small": {
+      "font": "Inter",
+      "weight": "Regular",
+      "size": 16,
+      "lineHeight": 1.4,
+      "color": "#FFFFFF",
+      "usage": "Notes, captions, small text"
+    },
+    "button": {
+      "font": "Inter",
+      "weight": "SemiBold",
+      "size": 20,
+      "color": "#0A0E1A",
+      "background": "#00D9FF"
+    }
+  },
+  "design": {
+    "style": "Glassmorphism Dark Mode",
+    "theme": "Futuristic, Modern, High-Tech",
+    "elements": {
+      "background": "Abstract Grid with subtle gradient",
+      "glass_frame": "60% opacity frosted glass effect",
+      "glow_effect": "Cyan #00D9FF with 20px blur radius",
+      "animation": "Rise + Glow + Pan",
+      "border_radius": "16px",
+      "shadow": "0 8px 32px rgba(0, 217, 255, 0.1)"
+    },
+    "spacing": {
+      "padding": "40px",
+      "margin": "30px",
+      "gap": "20px",
+      "gutter": "24px"
+    }
+  },
+  "templates": {
+    "formats": {
+      "youtube": {
+        "width": 1280,
+        "height": 720,
+        "aspect_ratio": "16:9"
+      },
+      "tiktok": {
+        "width": 1080,
+        "height": 1920,
+        "aspect_ratio": "9:16"
+      },
+      "facebook": {
+        "width": 1080,
+        "height": 1080,
+        "aspect_ratio": "1:1"
+      },
+      "instagram": {
+        "width": 1080,
+        "height": 1080,
+        "aspect_ratio": "1:1"
+      },
+      "linkedin": {
+        "width": 1200,
+        "height": 627,
+        "aspect_ratio": "1.91:1"
+      }
+    }
+  },
+  "pages": {
+    "page_1": {
+      "title": "Product Showcase",
+      "layout": "Image Center + Price + CTA",
+      "elements": ["PRODUCT_IMAGE", "PRICE_TAG", "SHOP_NOW_CTA"],
+      "animation": "Fade In + Glow Rise",
+      "notes": "Replace PRODUCT_IMAGE, double-click price to edit, button color #00D9FF"
+    },
+    "page_2": {
+      "title": "Headline Offer",
+      "layout": "Text Center + Logo",
+      "elements": ["HEADLINE", "SUBHEADLINE", "LOGO"],
+      "animation": "Pan Right + Rise",
+      "notes": "Sora Bold 72 with glow, Inter 24 for subtitle, logo top-left locked"
+    },
+    "page_3": {
+      "title": "Hook + Discount",
+      "layout": "Two Column + Center Icon",
+      "elements": ["HOOK_TEXT", "DISCOUNT_BADGE", "AI_ICON_GLOW"],
+      "animation": "Pulse + Glow",
+      "notes": "Hook left, discount #7B61FF right, AI icon center with 20px glow"
+    },
+    "page_4": {
+      "title": "Testimonial",
+      "layout": "Photo + Quote",
+      "elements": ["CLIENT_PHOTO", "CLIENT_REVIEW", "CLIENT_NAME", "STARS"],
+      "animation": "Slide In + Fade",
+      "notes": "Circle frame for photo, 5-star rating, review in quote box"
+    },
+    "page_5": {
+      "title": "Features + App",
+      "layout": "Three Column + Mockup",
+      "elements": ["FEATURE_1", "FEATURE_2", "FEATURE_3", "PHONE_MOCKUP"],
+      "animation": "Cascade Fade",
+      "notes": "Features with ✓ checklist, phone mockup right side, 3:4 ratio"
+    }
+  },
+  "csv_columns": [
+    "HEADLINE",
+    "SUBHEADLINE",
+    "PRICE",
+    "DISCOUNT",
+    "CTA",
+    "PRODUCT_NAME",
+    "FEATURE_1",
+    "FEATURE_2",
+    "FEATURE_3",
+    "HOOK_TEXT",
+    "CLIENT_NAME",
+    "CLIENT_REVIEW"
+  ],
+  "animations": {
+    "entrance": "Rise (bottom to center, 800ms)",
+    "highlight": "Glow (cyan #00D9FF, 20px, 1.2s loop)",
+    "movement": "Pan (left to right, smooth)"
+  },
+  "version": "1.0",
+  "last_updated": "2026-09-29",
+  "compatibility": {
+    "canva": "Pro (required for Bulk Create)",
+    "google_sheets": "Any version",
+    "formats": ["PNG", "PDF", "Video", "MP4"]
+  }
+}
