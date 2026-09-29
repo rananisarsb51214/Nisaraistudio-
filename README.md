@@ -1,10 +1,55 @@
-# Nisara Studio ✨
+# 🚀 NISARA AI STUDIO
 
-A modern React portfolio website showcasing dynamic UI elements, animated modals, and interactive components. Built with Vite, Tailwind CSS, and Framer Motion for smooth animations and responsive design.
+<div align="center">
 
-**Current Status:** Frontend portfolio is functional and complete. Backend and AI platform features are scaffolded but not yet integrated.
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
-## Quick Start
+**A premium, AI-ready portfolio platform with interactive animations and a refined dark UI.**
+
+[Demo](#quick-start) • [Roadmap](#roadmap) • [Issues](https://github.com/rananisarsb51214/Nisaraistudio-/issues)
+
+</div>
+
+---
+
+## Status
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| **Frontend Portfolio** | ✅ Complete | Interactive cards, modals, animations |
+| **Backend API** | 🗺️ Planned | Express + PostgreSQL scaffolded |
+| **AI Integration** | 🗺️ Roadmap | Gemini AI integration planned |
+| **Full Platform** | 🗺️ Future | Deployment, automation, builder tools |
+
+---
+
+## 🎯 What's Inside
+
+### Interactive Experience
+- **Portfolio Showcase** – Animated project cards with detailed modal views
+- **Motion-Rich UI** – Smooth transitions powered by Framer Motion
+- **Contact Form** – Modal-based interaction with validation
+- **Dark Theme** – Premium neon-inspired aesthetic
+- **Fully Responsive** – Optimized for all devices
+- **Analytics Ready** – Vercel Analytics integration
+
+### Tech Foundation
+
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React 18, TypeScript, Vite |
+| **Styling** | Tailwind CSS, Framer Motion |
+| **Icons** | Lucide React |
+| **Analytics** | Vercel Analytics |
+| **Deployment** | Docker-ready, full-stack ready |
+
+---
+
+## ⚡ Quick Start
 
 ```bash
 # Clone and install
@@ -14,95 +59,98 @@ npm install
 
 # Run development server
 npm run dev
-# Visit http://localhost:3000
 ```
 
-## Features
+Then open **http://localhost:3000** 🚀
 
-- **Interactive Portfolio Cards** – Click to view detailed project descriptions in animated modals
-- **Animated Modals** – Smooth slide-in/slide-out animations for project details
-- **Contact Form Modal** – Functional contact form with animations
-- **Dark Theme UI** – Modern design with Tailwind CSS
-- **Responsive Layout** – Works seamlessly on desktop, tablet, and mobile
-- **Lucide Icons** – Clean, customizable icon library
-- **Analytics Ready** – Vercel Analytics integration included
+---
 
-## Tech Stack
+## 📁 Project Structure
 
-| Layer | Technology |
-|-------|------------|
-| **Frontend** | React, TypeScript, Vite |
-| **Styling** | Tailwind CSS, Framer Motion |
-| **Icons** | Lucide React |
-| **Analytics** | Vercel Analytics |
-| **Future** | Express, PostgreSQL, Redis (Docker Compose ready) |
-
-## Project Structure
-
-```text
+```
 ├── src/
-│   ├── App.tsx          # Main app with portfolio & modals
-│   ├── index.css        # Global styles + Tailwind
-│   └── main.tsx         # React entry point
-├── public/              # Static assets
-├── apps/frontend/       # Dockerized frontend
-├── services/            # Backend service stubs (future)
-├── docker-compose.yml   # Full-stack services config
-├── docs/                # Documentation files
-├── .env                 # Example environment file
-├── package.json         # Scripts and dependencies
-├── vite.config.ts       # Vite configuration
-└── README.md            # Project documentation
+│   ├── App.tsx              # Main React component
+│   ├── index.css            # Global Tailwind styles
+│   └── main.tsx             # Entry point
+├── apps/
+│   └── frontend/            # Dockerized frontend
+├── services/                # Backend service stubs
+├── docs/                    # Documentation
+├── docker-compose.yml       # Full-stack services config
+├── vite.config.ts           # Build configuration
+└── package.json             # Dependencies
 ```
 
-**Note:** Directories like `ai-router/`, `analytics/`, `api/`, and similar top-level folders are placeholders for future development work.
+**Note:** Directories like `ai-router/`, `analytics/`, `api/` are placeholders for future platform expansion.
 
-## How to Use
+---
 
-### Development
+## 🛠️ Development
 
 ```bash
-npm run dev      # Start dev server
-npm run build    # Build for production
-npm run preview  # Preview production build
+npm run dev       # Start dev server
+npm run build     # Build for production
+npm run preview   # Preview production build
 ```
 
-### Features in Action
+---
 
-1. **Explore Portfolio** – Browse project cards with titles and descriptions
-2. **View Details** – Click any card to open an animated modal with full project info
-3. **Contact Form** – Click "Contact Me" to submit your information
-4. **Responsive** – Resize the window to see mobile-optimized layout
+## 🗺️ Roadmap
 
-## Environment Variables (Optional)
+### Phase 1: Backend Foundation
+- [ ] Node.js/Express API
+- [ ] PostgreSQL database
+- [ ] Contact form integration
+- [ ] Authentication layer
+
+### Phase 2: AI Integration
+- [ ] Google Gemini integration
+- [ ] AI-powered content generation
+- [ ] Smart automation workflows
+
+### Phase 3: Full Platform
+- [ ] Website builder interface
+- [ ] Deployment tooling
+- [ ] Advanced analytics
+- [ ] Multi-user support
+
+---
+
+## 🔧 Environment Variables (Optional)
 
 Create a `.env` file for future AI integrations:
 
 ```env
 VITE_GEMINI_API_KEY=your_gemini_api_key_here
+VITE_API_BASE_URL=http://localhost:3001
 ```
 
-## Contributing
+---
 
-1. Fork the repo
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit changes: `git commit -m 'Add feature'`
-4. Push and open a Pull Request
+## 🤝 Contributing
 
-## Roadmap
+We welcome contributions! Here's how:
 
-- [ ] Connect contact form to backend
-- [ ] Integrate Google Gemini AI
-- [ ] Backend API with Node.js/Express
-- [ ] Database layer (PostgreSQL)
-- [ ] Full-stack deployment
-- [ ] AI-powered features
+```bash
+# Create a feature branch
+git checkout -b feature/your-feature
 
-## License
+# Make your changes and commit
+git commit -m "Add your feature"
 
-Proprietary — no license is currently specified. Add a `LICENSE` file to define usage terms.
+# Push and open a PR
+git push origin feature/your-feature
+```
 
-## Links
+---
+
+## 📄 License
+
+Proprietary — no license currently specified. Add a `LICENSE` file to define usage terms.
+
+---
+
+## 📞 Contact & Links
 
 - **Repository:** [github.com/rananisarsb51214/Nisaraistudio-](https://github.com/rananisarsb51214/Nisaraistudio-)
 - **Author:** Muhammed Nisar
@@ -110,4 +158,10 @@ Proprietary — no license is currently specified. Add a `LICENSE` file to defin
 
 ---
 
-Built with ❤️ by Muhammed Nisar
+<div align="center">
+
+**Built with React, Tailwind CSS, and AI-forward vision by Muhammed Nisar**
+
+[⬆ Back to Top](#-nisara-ai-studio)
+
+</div>
