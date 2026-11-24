@@ -1,4 +1,4 @@
-# 🚀 NISARA AI STUDIO
+# 🚀 NISARAISTUDIO
 
 <div align="center">
 
